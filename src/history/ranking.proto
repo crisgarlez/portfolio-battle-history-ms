@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package rankingms;
+
+service RankingService {
+  rpc FindAllRecords (Empty) returns (Records) {}
+  rpc SendResult (Result) returns (Record) {}
+}
+
+message Empty {};
+
+message Records {
+  repeated Record records = 1;
+}
+
+message Record {
+  string id = 1;
+  string monsterid = 2;
+  string monstername = 3;
+  int32 victories = 4;
+  int32 defeats = 5;
+}
+
+message Result {
+  string winnerid = 1;
+  string winnername = 2;
+  string defeatedid = 3;
+  string defeatedname = 4;
+}
